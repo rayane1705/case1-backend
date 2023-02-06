@@ -17,7 +17,7 @@ class ContentsDAO {
     static inserir(conteudo) {
         const query = 'INSERT INTO conteudos (titulo, descricao, porcentagem) VALUES (?, ?, ?)';
         return new Promise((resolve, reject) => {
-            db.run(query, [conteudo.titulo, conteudo.descricao, conteudo.porcentagem], (err) => {
+            db.run(query, [conteudo.titulo, conteudo.descricao, conteudo.porcentagem], function (err) {
                 if (err) {
                     reject({
                         mensagem: 'Erro ao inserir o conteúdo',
@@ -25,7 +25,10 @@ class ContentsDAO {
                     })
                 }
 
-                resolve({ mensagem: 'Conteúdo criado com sucesso' })
+                resolve({
+                    mensagem: 'Conteúdo criado com sucesso',
+                    contentId: this.lastID
+                 })
             });
         });
     }
