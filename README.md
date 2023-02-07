@@ -1,8 +1,6 @@
 
 # Passo a passo de construção
 
-## Configuração inicial
-
 1. `npm init -y` para inicar o npm
 2. `npm install cors express sqlite3`
 3. `npm install --save-dev nodemon` Para instalar como dependência de desenvolvimento
